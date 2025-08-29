@@ -33,6 +33,19 @@ function formatResult(message) {
   return `Result: ${message}`;
 }
 
+// Function to capitalize string
+function capitalizeString(str) {
+  if (!str) return "";
+  return str.toUpperCase();
+}
+
+document.getElementById("capitalizeBtn").addEventListener("click", () => {
+  let name = document.getElementById("nameInput").value;
+  let result = capitalizeString(name);
+  document.getElementById("capitalizedResult").textContent = `${result}`;
+});
+
+
 document.getElementById("calcSumBtn").addEventListener("click", () => {
   let num1 = parseInt(document.getElementById("num1").value) || 0;
   let num2 = parseInt(document.getElementById("num2").value) || 0;
@@ -81,4 +94,11 @@ document.getElementById("createElementBtn").addEventListener("click", () => {
   let note = document.createElement("p");
   note.textContent = "New Note added at " + new Date().toLocaleTimeString();
   document.getElementById("notes").appendChild(note);
+});
+
+// Change background color randomly
+document.getElementById("changeBgBtn").addEventListener("click", () => {
+  const colors = ["#FFDDC1", "#C1FFD7", "#C1E1FF", "#F1C1FF", "#FFF3C1"];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.body.style.backgroundColor = randomColor;
 });
